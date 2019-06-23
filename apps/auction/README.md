@@ -22,3 +22,19 @@ be found at [https://hexdocs.pm/auction](https://hexdocs.pm/auction).
 ## Generated using
 
 mix local.hex (only need to do this once per pc)
+
+## Initial Setup of database
+
+./launchdb # If not already running in docker container
+mix ecto.create
+
+### Creating Migrations
+
+mix ecto.gen.migration descriptive_name # Create a new migration
+mix ecto.migrations                     # List migrations and their status
+mix ecto.migrate                        # Run migrations
+mix ecto.rollback                       # Rollback last migration
+
+### Run using iex
+
+iex -S mix
