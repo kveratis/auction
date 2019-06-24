@@ -3,6 +3,8 @@ defmodule Auction do
 
   @repo Auction.Repo
 
+  def new_item, do: Item.changeset(%Item{}) # Returns an Auction.Item struct with no changes
+
   def list_items do
       @repo.all(Item)
   end
@@ -16,8 +18,8 @@ defmodule Auction do
   end
 
   def insert_item(attrs) do
-    Auction.Item
-    |> struct!(attrs)
+    %Item{}
+    |> Item.changeset(attrs)
     |> @repo.insert()
   end
 
@@ -29,5 +31,10 @@ defmodule Auction do
     item
     |> Item.changeset(updates)
     |> @repo.update()
+  end
+
+  def edit_item(id) do
+    get_item(id)
+    |> Item.changeset()
   end
 end

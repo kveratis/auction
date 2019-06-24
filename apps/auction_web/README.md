@@ -25,3 +25,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 mix archive.install hex phx_new 1.4.8 (Only need to do this once per system)
 cd auction_umbrella/apps
 mix phx.new.web auction_web --no-ecto
+
+## Useful Mix items
+
+mix phx.server  # Run application
+mix phx.routes  # Show named routes
